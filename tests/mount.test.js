@@ -1,9 +1,11 @@
+import ScrollProgress from '../dist/ScrollProgress'
+
 test('true is not false', () => {
   expect(true).not.toBeFalsy()
 })
 
-// import ScrollProgress from '../dist/ScrollProgress'
-
-// test('can mount', () => {
-//   new ScrollProgress().mount()
-// })
+test('throws error on invalid selector', () => {
+  expect(() => {
+    new ScrollProgress({ selector: 'foo' })
+  }).toThrowError('Something is wrong with your selector 🕵️‍♂️')
+})
