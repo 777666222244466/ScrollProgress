@@ -1,0 +1,50 @@
+{
+  "name": "@robbinworks/ScrollProgress",
+  "version": "0.1.0",
+  "description": "Highly customizable scroll progress bar",
+  "author": "Robbin Johansson <mail@robbin.works> (https://robbin.works/)",
+  "homepage": "https://robbin.works/ScrollProgress",
+  "main": "dist/ScrollProgress.js",
+  "module": "dist/ScrollProgress.esm.js",
+  "unpkg": "dist/ScrollProgress.js",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robbinworks/ScrollProgress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/robbinworks/ScrollProgress/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "scroll",
+    "progress",
+    "indicator"
+  ],
+  "scripts": {
+    "build:sass": "node-sass src/assets/scss/ScrollProgress.scss dist/css/ScrollProgress.css && node-sass src/assets/scss/ScrollProgress.scss dist/css/ScrollProgress.min.css --output-style=compressed && postcss dist/css/*.css --use autoprefixer --replace",
+    "build:js": "rollup -c",
+    "build": "yarn build:sass && yarn build:js",
+    "dev": "rollup -c -w",
+    "test": "jest",
+    "lint": "eslint {src,tests}/**/*.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "autoprefixer": "^9.7.4",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.9.0",
+    "node-sass": "^4.13.1",
+    "postcss-cli": "^7.1.0",
+    "rollup": "^1.29.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-terser": "^5.2.0"
+  }
+}

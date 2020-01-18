@@ -1,0 +1,95 @@
+:root {
+  --red: #da2c4d;
+  --yellow: #f8ab37;
+  --green: #2ecc71;
+  --white: #ffffff;
+  --grey-light: #f2f7f9;
+  --grey: #ecedf3;
+  --black: #080808;
+  --black-blue: #1f2029;
+  --black-blue-light: #353746;
+  --black-blue-light-2: #404255;
+  --black-blue-light-3: #4b4d64;
+  --black-light: #424455;
+}
+body{
+  height: calc(100vh*2);
+  color: var(--grey);
+  background-color: var(--black-blue);
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* #Progress
+================================================== */
+
+.scroll--progress {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  height: 46px;
+  width: 46px;
+  cursor: pointer;
+  display: block;
+  border-radius: 50px;
+  box-shadow: inset  0 0 0 2px rgba(255,255,255,0.2);
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 200ms linear;
+}
+.scroll--progress.active-progress {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.scroll--progress::after {
+  position: absolute;
+  content: 'icon';
+  text-align: center;
+  line-height: 46px;
+  font-size: 12px;
+  color: var(--grey);
+  left: 0;
+  top: 0;
+  height: 46px;
+  width: 46px;
+  cursor: pointer;
+  display: block;
+  z-index: 1;
+  transition: all 200ms linear;
+}
+.scroll--progress:hover::after {
+  opacity: 0;
+}
+.scroll--progress::before {
+  position: absolute;
+  content: 'icon';
+  text-align: center;
+  line-height: 46px;
+  font-size: 12px;
+  opacity: 0;
+  background-image: linear-gradient(298deg, var(--red), var(--yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  left: 0;
+  top: 0;
+  height: 46px;
+  width: 46px;
+  cursor: pointer;
+  display: block;
+  z-index: 2;
+  transition: all 200ms linear;
+}
+.scroll--progress:hover::before {
+  opacity: 1;
+}
+.scroll--progress svg path {
+  fill: none;
+}
+.scroll--progress svg.progress-circle path {
+  stroke: var(--grey);
+  stroke-width: 4;
+  box-sizing:border-box;
+  transition: all 200ms linear;
+}
