@@ -41,6 +41,7 @@
      * @type {String}
      */
     backgroundColor: 'rgba(255,255,255,0.2)',
+    // to be implemented
 
     /**
      * The progress bar color.
@@ -49,6 +50,7 @@
      * @type {String}
      */
     progressColor: '#ECEDF3',
+    // to be implemented
 
     /**
      * Determine if the progress bar is clickable and will scroll to top on click.
@@ -56,6 +58,7 @@
      * @type {Boolean}
      */
     clickToTop: true,
+    // to be implemented
 
     /**
      * The offset in which to scroll before showing the progress bar.
@@ -87,6 +90,11 @@
   var ScrollProgress =
   /*#__PURE__*/
   function () {
+    /**
+     * Construct ScrollProgress.
+     *
+     * @param  {Object} options
+     */
     function ScrollProgress() {
       var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
@@ -95,6 +103,12 @@
       this.settings = ScrollProgress.mergeSettings(options);
       this.selector = typeof this.settings.selector === 'string' ? document.querySelector(this.settings.selector) : ScrollProgress.buildSelector();
     }
+    /**
+     * Initialize ScrollProgress.
+     *
+     * @return {ScrollProgress}
+     */
+
 
     _createClass(ScrollProgress, [{
       key: "mount",
@@ -104,6 +118,12 @@
         this.attachEvents();
         return this;
       }
+      /**
+       * Build markup for svg and append default class/styles.
+       *
+       * @return {ScrollProgress}
+       */
+
     }, {
       key: "buildSvg",
       value: function buildSvg() {
@@ -125,6 +145,12 @@
         this.progressPath.style.WebkitTransition = "stroke-dashoffset ".concat(this.settings.progressPathTransition);
         return this;
       }
+      /**
+       * Handle the scroll logic.
+       *
+       * @return {ScrollProgress}
+       */
+
     }, {
       key: "scrollHandler",
       value: function scrollHandler() {
@@ -140,6 +166,12 @@
 
         return this;
       }
+      /**
+       * Handle the on click logic.
+       *
+       * @return {ScrollProgress}
+       */
+
     }, {
       key: "clickHandler",
       value: function clickHandler() {
@@ -153,6 +185,12 @@
 
         return this;
       }
+      /**
+       * Get the scroll position and document height.
+       *
+       * @return {ScrollProgress}
+       */
+
     }, {
       key: "getScrollOffset",
       value: function getScrollOffset() {
@@ -160,18 +198,35 @@
         this.docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         return this;
       }
+      /**
+       * Attach event listeners to the DOM.
+       */
+
     }, {
       key: "attachEvents",
       value: function attachEvents() {
         document.addEventListener('scroll', this.scrollHandler.bind(this), false);
         document.addEventListener('click', this.clickHandler.bind(this), false);
       }
+      /**
+       * Validate the selector.
+       *
+       * @param  {String} selector
+       * @throws {Error} | @return {Boolean}
+       */
+
     }], [{
       key: "validateSelector",
       value: function validateSelector(selector) {
         if (!document.body.contains(selector)) throw new Error('Something is wrong with your selector 🕵️‍♂️');
         return true;
       }
+      /**
+       * Build the selector div and append it to the DOM.
+       *
+       * @return {HTMLElement}
+       */
+
     }, {
       key: "buildSelector",
       value: function buildSelector() {
@@ -180,6 +235,13 @@
         document.body.appendChild(el);
         return el;
       }
+      /**
+       * Merge default with user settings.
+       *
+       * @param  {Object} options
+       * @return {Object}
+       */
+
     }, {
       key: "mergeSettings",
       value: function mergeSettings(options) {

@@ -1,16 +1,7 @@
 :root {
   --red: #da2c4d;
   --yellow: #f8ab37;
-  --green: #2ecc71;
-  --white: #ffffff;
-  --grey-light: #f2f7f9;
   --grey: #ecedf3;
-  --black: #080808;
-  --black-blue: #1f2029;
-  --black-blue-light: #353746;
-  --black-blue-light-2: #404255;
-  --black-blue-light-3: #4b4d64;
-  --black-light: #424455;
 }
 /* #Progress
 ================================================== */
@@ -21,7 +12,7 @@
   bottom: 50px;
   height: 46px;
   width: 46px;
-  cursor: pointer;
+  cursor: pointer; // if clickToTop || onClick()
   display: block;
   border-radius: 50px;
   box-shadow: inset  0 0 0 2px rgba(255,255,255,0.2);

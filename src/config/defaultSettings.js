@@ -12,7 +12,7 @@ export default {
    *
    * @type {String}
    */
-  backgroundColor: 'rgba(255,255,255,0.2)',
+  backgroundColor: 'rgba(255,255,255,0.2)', // to be implemented
 
   /**
    * The progress bar color.
@@ -20,14 +20,14 @@ export default {
    *
    * @type {String}
    */
-  progressColor: '#ECEDF3',
+  progressColor: '#ECEDF3', // to be implemented
 
   /**
    * Determine if the progress bar is clickable and will scroll to top on click.
    *
    * @type {Boolean}
    */
-  clickToTop: true,
+  clickToTop: true, // to be implemented
 
   /**
    * The offset in which to scroll before showing the progress bar.

@@ -1,6 +1,11 @@
 import defaultSettings from './config/defaultSettings'
 
 export default class ScrollProgress {
+  /**
+   * Construct ScrollProgress.
+   *
+   * @param  {Object} options
+   */
   constructor (options = {}) {
     this.settings = ScrollProgress.mergeSettings(options)
     this.selector = typeof this.settings.selector === 'string' ?
@@ -8,6 +13,11 @@ export default class ScrollProgress {
                     ScrollProgress.buildSelector()
   }
 
+  /**
+   * Initialize ScrollProgress.
+   *
+   * @return {ScrollProgress}
+   */
   mount () {
     ScrollProgress.validateSelector(this.selector)
     this.buildSvg()
@@ -16,6 +26,11 @@ export default class ScrollProgress {
     return this
   }
 
+  /**
+   * Build markup for svg and append default class/styles.
+   *
+   * @return {ScrollProgress}
+   */
   buildSvg() {
     let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
     svg.setAttribute('class', 'progress-circle')
@@ -41,6 +56,11 @@ export default class ScrollProgress {
     return this
   }
 
+  /**
+   * Handle the scroll logic.
+   *
+   * @return {ScrollProgress}
+   */
   scrollHandler() {
     this.getScrollOffset()
 
@@ -56,6 +76,11 @@ export default class ScrollProgress {
     return this
   }
 
+  /**
+   * Handle the on click logic.
+   *
+   * @return {ScrollProgress}
+   */
   clickHandler() {
     if (event.target !== this.selector) return
 
@@ -69,6 +94,11 @@ export default class ScrollProgress {
     return this
   }
 
+  /**
+   * Get the scroll position and document height.
+   *
+   * @return {ScrollProgress}
+   */
   getScrollOffset() {
     this.scrolled = document.body.scrollTop || document.documentElement.scrollTop
     this.docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
@@ -76,11 +106,20 @@ export default class ScrollProgress {
     return this
   }
 
+  /**
+   * Attach event listeners to the DOM.
+   */
   attachEvents() {
     document.addEventListener('scroll', this.scrollHandler.bind(this), false)
     document.addEventListener('click', this.clickHandler.bind(this), false)
   }
 
+  /**
+   * Validate the selector.
+   *
+   * @param  {String} selector
+   * @throws {Error} | @return {Boolean}
+   */
   static validateSelector(selector) {
     if (! document.body.contains(selector))
       throw new Error('Something is wrong with your selector 🕵️‍♂️')
@@ -88,6 +127,11 @@ export default class ScrollProgress {
     return true
   }
 
+  /**
+   * Build the selector div and append it to the DOM.
+   *
+   * @return {HTMLElement}
+   */
   static buildSelector() {
     let el = document.createElement('div');
     el.className = 'js--scroll--progress'
@@ -96,6 +140,12 @@ export default class ScrollProgress {
     return el
   }
 
+  /**
+   * Merge default with user settings.
+   *
+   * @param  {Object} options
+   * @return {Object}
+   */
   static mergeSettings(options) {
     const settings = defaultSettings
 
