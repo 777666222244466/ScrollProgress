@@ -1,12 +1,18 @@
 export default {
-  selector: '.scroll--progress',
+  /**
+   * The selector to append the progress bar to.
+   *
+   * @type {Boolean|String}
+   */
+  selector: false,
+
   /**
    * The background color of the progress bar.
    * Any valid css for `background-color` attribute will do.
    *
    * @type {String}
    */
-  backgroundColor: '#EAEAEA',
+  backgroundColor: 'rgba(255,255,255,0.2)',
 
   /**
    * The progress bar color.
@@ -14,7 +20,7 @@ export default {
    *
    * @type {String}
    */
-  progressColor: 'linear-gradient(to right, #ec008c, #fc6767)',
+  progressColor: '#ECEDF3',
 
   /**
    * Determine if the progress bar is clickable and will scroll to top on click.
@@ -30,6 +36,18 @@ export default {
    */
   scrollOffset: 50,
 
+  /**
+   * The progress path css transition.
+   *
+   * @type {String}
+   */
+  progressPathTransition: '10ms linear',
+
+  /**
+   * The function to fire when clicking the progress bar.
+   *
+   * @return {Function}
+   */
   onClick: () => {
     window.scroll({
       top: 0,

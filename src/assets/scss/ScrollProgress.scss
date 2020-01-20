@@ -12,17 +12,10 @@
   --black-blue-light-3: #4b4d64;
   --black-light: #424455;
 }
-body{
-  height: calc(100vh*2);
-  color: var(--grey);
-  background-color: var(--black-blue);
-  -webkit-font-smoothing: antialiased !important;
-}
-
 /* #Progress
 ================================================== */
 
-.scroll--progress {
+.js--scroll--progress {
   position: fixed;
   right: 50px;
   bottom: 50px;
@@ -38,12 +31,12 @@ body{
   transform: translateY(15px);
   transition: all 200ms linear;
 }
-.scroll--progress.active-progress {
+.js--scroll--progress.active-progress {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
-.scroll--progress::after {
+.js--scroll--progress::after {
   position: absolute;
   content: 'icon';
   text-align: center;
@@ -59,10 +52,10 @@ body{
   z-index: 1;
   transition: all 200ms linear;
 }
-.scroll--progress:hover::after {
+.js--scroll--progress:hover::after {
   opacity: 0;
 }
-.scroll--progress::before {
+.js--scroll--progress::before {
   position: absolute;
   content: 'icon';
   text-align: center;
@@ -81,13 +74,13 @@ body{
   z-index: 2;
   transition: all 200ms linear;
 }
-.scroll--progress:hover::before {
+.js--scroll--progress:hover::before {
   opacity: 1;
 }
-.scroll--progress svg path {
+.js--scroll--progress svg path {
   fill: none;
 }
-.scroll--progress svg.progress-circle path {
+.js--scroll--progress svg.progress-circle path {
   stroke: var(--grey);
   stroke-width: 4;
   box-sizing:border-box;
