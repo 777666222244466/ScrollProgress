@@ -205,7 +205,6 @@ function () {
     value: function attachEvents() {
       document.addEventListener('scroll', this.scrollHandler.bind(this));
       document.addEventListener('click', this.clickHandler.bind(this));
-      return this;
     }
   }, {
     key: "progressStyles",

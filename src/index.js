@@ -131,7 +131,7 @@ export default class ScrollProgress {
   scrollHandler() {
     this.getScrollOffset()
 
-    let progress = this.pathLength - (this.scrolled * this.pathLength / this.docHeight)
+    const progress = this.pathLength - (this.scrolled * this.pathLength / this.docHeight)
     this.progressPath.style.strokeDashoffset = progress
 
     if (this.scrolled > this.settings.scrollOffset) {
@@ -166,8 +166,6 @@ export default class ScrollProgress {
   attachEvents() {
     document.addEventListener('scroll', this.scrollHandler.bind(this))
     document.addEventListener('click', this.clickHandler.bind(this))
-
-    return this
   }
 
   progressStyles() {
