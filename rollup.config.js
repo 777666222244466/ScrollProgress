@@ -7,28 +7,26 @@ export default {
   input: 'src/index.js',
   output: [
     {
-    file: 'dist/ScrollProgress.esm.js',
-    format: 'esm'
+      file: 'dist/ScrollProgress.esm.js',
+      format: 'esm',
     },
     {
-    file: 'dist/ScrollProgress.js',
-    format: 'umd',
-    name: 'ScrollProgress'
+      file: 'dist/ScrollProgress.js',
+      format: 'umd',
+      name: 'ScrollProgress',
+      plugins: [filesize()]
     },
     {
-    file: 'dist/ScrollProgress.min.js',
-    format: 'umd',
-    name: 'ScrollProgress'
+      file: 'dist/ScrollProgress.min.js',
+      format: 'umd',
+      name: 'ScrollProgress',
+      plugins: [terser(), filesize()]
     },
   ],
   plugins: [
     resolve(),
     babel({
       exclude: 'node_modules/**',
-    }),
-    terser({
-      include: [/^.+\.min\.js$/],
-    }),
-    filesize()
+    })
   ]
 };
