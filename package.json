@@ -22,7 +22,7 @@
     "indicator"
   ],
   "scripts": {
-    "build:sass": "node-sass src/assets/scss/ScrollProgress.scss dist/css/ScrollProgress.css && node-sass src/assets/scss/ScrollProgress.scss dist/css/ScrollProgress.min.css --output-style=compressed && postcss dist/css/*.css --use autoprefixer --replace",
+    "build:sass": "node-sass src/assets/scss/ScrollProgress.scss dist/css/ScrollProgress.css && node-sass src/assets/scss/ScrollProgress.scss dist/css/ScrollProgress.min.css --output-style=compressed && postcss dist/css/*.css --use autoprefixer --replace --no-map",
     "build:js": "rollup -c",
     "build": "yarn build:sass && yarn build:js",
     "dev": "rollup -c -w",

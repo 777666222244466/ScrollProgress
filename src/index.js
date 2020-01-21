@@ -50,8 +50,8 @@ export default class ScrollProgress {
 
     this.progressPath.style.strokeDasharray = this.pathLength + ' ' + this.pathLength
     this.progressPath.style.strokeDashoffset = this.pathLength
-    this.progressPath.style.transition = `stroke-dashoffset ${this.settings.progressPathTransition}`
-    this.progressPath.style.WebkitTransition = `stroke-dashoffset ${this.settings.progressPathTransition}`
+    this.progressPath.style.transition = `stroke-dashoffset ${this.settings.progressEasing}`
+    this.progressPath.style.WebkitTransition = `stroke-dashoffset ${this.settings.progressEasing}`
     this.progressPath.style.fill = 'none'
 
     return this

@@ -60,11 +60,11 @@
     scrollOffset: 50,
 
     /**
-     * The progress path css transition.
+     * The progress path css easing.
      *
      * @type {String}
      */
-    progressPathTransition: '10ms linear',
+    progressEasing: '10ms linear',
 
     /**
      * The function to fire when clicking the progress bar.
@@ -133,8 +133,8 @@
         this.pathLength = this.progressPath.getTotalLength();
         this.progressPath.style.strokeDasharray = this.pathLength + ' ' + this.pathLength;
         this.progressPath.style.strokeDashoffset = this.pathLength;
-        this.progressPath.style.transition = "stroke-dashoffset ".concat(this.settings.progressPathTransition);
-        this.progressPath.style.WebkitTransition = "stroke-dashoffset ".concat(this.settings.progressPathTransition);
+        this.progressPath.style.transition = "stroke-dashoffset ".concat(this.settings.progressEasing);
+        this.progressPath.style.WebkitTransition = "stroke-dashoffset ".concat(this.settings.progressEasing);
         this.progressPath.style.fill = 'none';
         return this;
       }

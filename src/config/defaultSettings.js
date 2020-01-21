@@ -30,11 +30,11 @@ export default {
   scrollOffset: 50,
 
   /**
-   * The progress path css transition.
+   * The progress path css easing.
    *
    * @type {String}
    */
-  progressPathTransition: '10ms linear',
+  progressEasing: '10ms linear',
 
   /**
    * The function to fire when clicking the progress bar.
