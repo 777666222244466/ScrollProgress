@@ -52,6 +52,7 @@ export default class ScrollProgress {
     this.progressPath.style.strokeDashoffset = this.pathLength
     this.progressPath.style.transition = `stroke-dashoffset ${this.settings.progressPathTransition}`
     this.progressPath.style.WebkitTransition = `stroke-dashoffset ${this.settings.progressPathTransition}`
+    this.progressPath.style.fill = 'none'
 
     return this
   }
@@ -82,7 +83,7 @@ export default class ScrollProgress {
    * @return {ScrollProgress}
    */
   clickHandler() {
-    if (event.target !== this.selector) return
+    if (event.target !== this.selector || ! this.settings.onClick) return
 
     // continue
     event.preventDefault()

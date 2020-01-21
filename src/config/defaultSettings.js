@@ -23,13 +23,6 @@ export default {
   progressColor: '#ECEDF3', // to be implemented
 
   /**
-   * Determine if the progress bar is clickable and will scroll to top on click.
-   *
-   * @type {Boolean}
-   */
-  clickToTop: true, // to be implemented
-
-  /**
    * The offset in which to scroll before showing the progress bar.
    *
    * @type {Number}

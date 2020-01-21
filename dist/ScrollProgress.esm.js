@@ -47,14 +47,6 @@ var defaultSettings = {
   // to be implemented
 
   /**
-   * Determine if the progress bar is clickable and will scroll to top on click.
-   *
-   * @type {Boolean}
-   */
-  clickToTop: true,
-  // to be implemented
-
-  /**
    * The offset in which to scroll before showing the progress bar.
    *
    * @type {Number}
@@ -137,6 +129,7 @@ function () {
       this.progressPath.style.strokeDashoffset = this.pathLength;
       this.progressPath.style.transition = "stroke-dashoffset ".concat(this.settings.progressPathTransition);
       this.progressPath.style.WebkitTransition = "stroke-dashoffset ".concat(this.settings.progressPathTransition);
+      this.progressPath.style.fill = 'none';
       return this;
     }
     /**
@@ -169,7 +162,7 @@ function () {
   }, {
     key: "clickHandler",
     value: function clickHandler() {
-      if (event.target !== this.selector) return; // continue
+      if (event.target !== this.selector || !this.settings.onClick) return; // continue
 
       event.preventDefault();
 
