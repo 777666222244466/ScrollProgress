@@ -186,13 +186,35 @@ function () {
       return this;
     }
     /**
+     * Limits calls to fn to run once every given delay.
+     * https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_throttle
+     *
+     * @param  {Function} fn
+     * @param  {Number} delay
+     * @return {Function}
+     */
+
+  }, {
+    key: "throttle",
+    value: function throttle(fn, delay) {
+      var lastCall = 0;
+      return function () {
+        var now = new Date();
+
+        if (now - lastCall >= delay) {
+          fn();
+          lastCall = now;
+        }
+      };
+    }
+    /**
      * Attach event listeners to the DOM.
      */
 
   }, {
     key: "attachEvents",
     value: function attachEvents() {
-      document.addEventListener('scroll', this.scrollHandler.bind(this), false);
+      document.addEventListener('scroll', this.throttle(this.scrollHandler.bind(this), 20), false);
       document.addEventListener('click', this.clickHandler.bind(this), false);
     }
     /**
